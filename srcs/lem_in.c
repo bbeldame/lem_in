@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/14 15:22:27 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/14 16:02:03 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int   main(void)
 {
-	ft_putstr("cool");
+	char	*line;
+
+	while (get_next_line(0, &line) > 0)
+	{
+		ft_putendl(line);
+	}
 	return (0);
 }
