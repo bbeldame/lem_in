@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/14 15:16:46 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/26 22:33:48 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,12 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
+
+typedef struct		s_env
+{
+	int				nb_ants;
+}					t_env;
+
+int					parse_ants(const char *str);
 
 #endif
