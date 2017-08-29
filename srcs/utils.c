@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/29 22:25:51 by bbeldame         ###   ########.fr       */
+/*   Created: 2017/08/29 22:00:28 by bbeldame          #+#    #+#             */
+/*   Updated: 2017/08/29 22:26:08 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int		parse_ants(char *str)
+int		read_line(char **line, t_env *env)
 {
-	int		i;
-	int		ants;
+	int		res;
 
-	if (ft_strlen(str) == 0)
-		syntax_error(str, "First line cannot be null", 1);
-	if (str[0] && str[0] == '-')
-		syntax_error(str, "The number of ants cannot be negative", 1);
-	i = 1;
-	while (str[i])
+	env->nb_line++;
+	res = get_next_line(0, line);
+	if (res == -1 && env->nb_line == 1)
 	{
-		if (!ft_isdigit(str[i++]))
-			syntax_error(str, "Ants badly formatted", 1);
+		ft_putstr("Read Error on open");
+		exit(3);
 	}
-	ants = ft_atoi(str);
-	if (ants == 0)
-		syntax_error(str, "The number of cats cannot be zero", 1);
-	return (ants);
+	if (res == -1)
+	{
+		ft_putstr("Read Error : ");
+		ft_putstr("\" at line ");
+		ft_putnbr(env->nb_line);
+		exit(3);
+	}
+	return (res);
 }

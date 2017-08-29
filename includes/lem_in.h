@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/27 20:12:20 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/29 22:25:38 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,32 @@ typedef struct			s_tmp_room
 	struct s_tmp_room	*next;
 }						t_tmp_room;
 
-int						parse_ants(const char *str);
+/*
+** Parse
+*/
+
+int						parse_ants(char *str);
+
+/*
+** Verify
+*/
+
+int						is_room(char *line, t_env *env);
+int						is_pipe(char *line, t_env *env);
+int						is_command(char *line, t_env *env);
+int						is_comment(char *line, t_env *env);
+
+/*
+** Errors handling
+*/
+
+void					syntax_error(char *line, char *explain, int nbline);
+void					unknown_setting(char *line, int nbline);
+
+/*
+** Utils
+*/
+
+int						read_line(char **line, t_env *env);
 
 #endif
