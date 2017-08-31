@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 20:13:57 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 22:25:17 by bbeldame         ###   ########.fr       */
+/*   Created: 2017/08/31 22:24:39 by bbeldame          #+#    #+#             */
+/*   Updated: 2017/08/31 22:26:22 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft.h"
 
-int		ft_atoi(const char *str)
+intmax_t		ft_atoll(const char *str)
 {
 	int i;
-	int res;
+	intmax_t res;
 	int minus;
 
 	i = 0;

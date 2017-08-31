@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 13:47:21 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 21:48:31 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void		dispatch_line(char *line, t_env *env)
 {
-	printf("je suis dans dispatch");
 	if (is_command(line, env))
 		ft_putendl("Command");
 	else if (is_comment(line, env))
@@ -42,5 +41,7 @@ int				main(void)
 	{
 		dispatch_line(line, &env);
 	}
+	print_buffer(&env);
+	// move_ants(env);
 	return (0);
 }

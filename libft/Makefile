@@ -6,7 +6,7 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 18:06:34 by bbeldame          #+#    #+#              #
-#    Updated: 2017/07/25 19:30:19 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/08/31 22:26:43 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS =	ft_putchar.c \
 		ft_toupper.c \
 		ft_tolower.c \
 		ft_atoi.c \
+		ft_atoll.c \
 		ft_itoa.c \
 		ft_strnew.c \
 		ft_strdel.c \
@@ -90,7 +91,9 @@ SRCS =	ft_putchar.c \
 		err_found.c \
 		len_of_tab.c \
 		get_next_line.c \
-		ft_abs.c
+		ft_abs.c \
+		ft_strjoin_free.c \
+		ft_strjoin_nl_free.c
 
 OBJS =	$(SRCS:.c=.o)
 

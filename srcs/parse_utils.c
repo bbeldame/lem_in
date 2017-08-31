@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 13:46:24 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 22:28:44 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		parse_ants(char *str)
 {
-	int		i;
-	int		ants;
+	int				i;
+	intmax_t		ants;
 
 	if (ft_strlen(str) == 0)
 		syntax_error(str, "First line cannot be null", 1);
@@ -27,8 +27,13 @@ int		parse_ants(char *str)
 		if (!ft_isdigit(str[i++]))
 			syntax_error(str, "Ants badly formatted", 1);
 	}
-	ants = ft_atoi(str);
+	if (ft_strlen(str) > 12)
+		syntax_error(str, "Too much ants", 1);
+	ants = ft_atoll(str);
 	if (ants == 0)
 		syntax_error(str, "The number of ants cannot be zero", 1);
+	if (ants > 2147483647)
+		syntax_error(str,
+			"The number of ants cannot be superior to INT_MAX", 1);
 	return (ants);
 }

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   buffer.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:50:28 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 21:41:48 by bbeldame         ###   ########.fr       */
+/*   Created: 2017/08/31 20:43:58 by bbeldame          #+#    #+#             */
+/*   Updated: 2017/08/31 21:25:15 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/lem_in.h"
 
-int	ft_isalnum(int c)
+void	add_to_buffer(char *line, t_env *env)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	env->buffer = ft_strjoin_nl_free(env->buffer, line);
+	if (env->buffer == NULL)
+		err_found("Error : allocation problem");
+}
+
+void	print_buffer(t_env *env)
+{
+	ft_putstr(env->buffer);
+	ft_putstr("\n\n");
 }

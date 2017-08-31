@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/29 22:13:40 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 21:05:15 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	syntax_error(char *line, char *explain, int nbline)
 {
-	ft_putstr("Syntax Error : ");
-	ft_putstr(explain);
-	ft_putstr(" on \"");
-	ft_putstr(line);
-	ft_putstr("\" at line ");
-	ft_putnbr(nbline);
+	ft_putstr_fd(RED"Syntax Error : ", 2);
+	ft_putstr_fd(explain, 2);
+	ft_putstr_fd(" on \"", 2);
+	ft_putstr_fd(line, 2);
+	ft_putstr_fd("\" at line ", 2);
+	ft_putnbr_fd(nbline, 2);
 	ft_putchar('\n');
 	exit(3);
 }
 
 void	unknown_setting(char *line, int nbline)
 {
-	ft_putstr("Unknown setting \"");
-	ft_putstr(line);
-	ft_putstr("\" at line ");
-	ft_putnbr(nbline);
+	ft_putstr_fd(RED"Unknown setting \"", 2);
+	ft_putstr_fd(line, 2);
+	ft_putstr_fd("\" at line ", 2);
+	ft_putnbr_fd(nbline, 2);
 	ft_putchar('\n');
 	exit(3);
 }
