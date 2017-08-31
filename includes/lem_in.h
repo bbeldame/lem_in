@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 22:30:46 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 22:42:29 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int						parse_ants(char *str);
 
 int						is_room(char *line, t_env *env);
 int						is_pipe(char *line, t_env *env);
-int						is_command(char *line, t_env *env);
-int						is_comment(char *line, t_env *env);
+int						is_command(char *line);
+int						is_comment(char *line);
 
 /*
 ** Errors handling

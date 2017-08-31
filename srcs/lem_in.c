@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 21:48:31 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 22:43:51 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 static void		dispatch_line(char *line, t_env *env)
 {
-	if (is_command(line, env))
+	if (is_command(line))
 		ft_putendl("Command");
-	else if (is_comment(line, env))
-		ft_putendl("Comment");
 	else if (is_room(line, env))
 		ft_putendl("Room");
 	else if (is_pipe(line, env))
 		ft_putendl("Pipe");
-	else
+	else if (!is_comment(line))
 		unknown_setting(line, env->nb_line);
 	free(line);
 }
