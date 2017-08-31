@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/29 22:25:38 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 13:41:27 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void					unknown_setting(char *line, int nbline);
 ** Utils
 */
 
+int						verify_int_room_coor(char **splited_str);
 int						read_line(char **line, t_env *env);
 
 #endif

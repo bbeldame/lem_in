@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/29 22:25:51 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/08/31 13:46:24 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		parse_ants(char *str)
 	}
 	ants = ft_atoi(str);
 	if (ants == 0)
-		syntax_error(str, "The number of cats cannot be zero", 1);
+		syntax_error(str, "The number of ants cannot be zero", 1);
 	return (ants);
 }
