@@ -20,7 +20,7 @@ void	syntax_error(char *line, char *explain, int nbline)
 	ft_putstr_fd(line, 2);
 	ft_putstr_fd("\" at line ", 2);
 	ft_putnbr_fd(nbline, 2);
-	ft_putchar('\n');
+	ft_putchar_fd('\n', 2);
 	exit(3);
 }
 
@@ -30,6 +30,6 @@ void	unknown_setting(char *line, int nbline)
 	ft_putstr_fd(line, 2);
 	ft_putstr_fd("\" at line ", 2);
 	ft_putnbr_fd(nbline, 2);
-	ft_putchar('\n');
+	ft_putchar_fd('\n', 2);
 	exit(3);
 }
