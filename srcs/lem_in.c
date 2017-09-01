@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 15:50:39 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/01 18:22:30 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		dispatch_line(char *line, t_parse *parser)
 	else if (is_pipe(line, parser))
 		ft_putendl("Pipe");
 	else if (!is_comment(line))
-		syntax_error(line, UNKNOWN_SETTING, parser->nb_line);
+		syntax_error(line, MSG_UNKNOWN_SETTING, parser->nb_line);
 }
 
 int				main(void)

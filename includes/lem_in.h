@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 18:16:29 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/01 18:22:27 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 ** General Errors
 */
 
-# define UNKNOWN_SETTING "This format does not exist"
-# define UNKNOWN_COMMAND "This command does not exist"
+# define MSG_UNKNOWN_SETTING "This format does not exist"
+# define MSG_UNKNOWN_COMMAND "This command does not exist"
 
 /*
 ** Rooms Parser Errors

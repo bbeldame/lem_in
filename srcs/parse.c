@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 15:51:14 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/01 18:22:38 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void		dispatch_command(char *line, t_parse *parser)
 	else if (!ft_strcmp(line + 2, "end"))
 		handle_command_end(line, parser);
 	else
-		syntax_error(line, UNKNOWN_COMMAND, parser->nb_line);
+		syntax_error(line, MSG_UNKNOWN_COMMAND, parser->nb_line);
 }
