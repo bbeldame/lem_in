@@ -6,21 +6,21 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:43:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 21:25:15 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/01 11:49:56 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	add_to_buffer(char *line, t_env *env)
+void	add_to_buffer(char *line, t_parse *parser)
 {
-	env->buffer = ft_strjoin_nl_free(env->buffer, line);
-	if (env->buffer == NULL)
+	parser->buffer = ft_strjoin_nl_free(parser->buffer, line);
+	if (parser->buffer == NULL)
 		err_found("Error : allocation problem");
 }
 
-void	print_buffer(t_env *env)
+void	print_buffer(t_parse *parser)
 {
-	ft_putstr(env->buffer);
+	ft_putstr(parser->buffer);
 	ft_putstr("\n\n");
 }

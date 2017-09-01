@@ -6,7 +6,7 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:13:26 by bbeldame          #+#    #+#              #
-#    Updated: 2017/08/31 21:09:48 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/09/01 15:47:48 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,14 @@ INCDIR = ./includes
 SRCDIR = ./srcs/
 
 SRCS_NAME = lem_in.c \
-			parse_utils.c \
 			errors.c \
 			verify.c \
+			verify_utils.c \
 			utils.c \
-			buffer.c
+			buffer.c \
+			parse.c \
+			parse_utils.c \
+			commands.c
 
 OBJS = $(addprefix $(OBJDIR),$(SRCS_NAME:.c=.o))
 LIBFT = $(addprefix $(LIBFTDIR)/,$(LIBFTA))

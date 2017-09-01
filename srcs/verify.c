@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:38:26 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 22:47:28 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/01 18:17:52 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		is_command(char *line)
 		line[1] == '#' && ft_strlen(line + 2) > 0);
 }
 
-int		is_room(char *line, t_env *env)
+int		is_room(char *line, t_parse *parser)
 {
 	char	**parsed_line;
 	int		len;
@@ -33,20 +33,16 @@ int		is_room(char *line, t_env *env)
 	if (len != 3)
 	{
 		if (len > 3)
-			unknown_setting(line, env->nb_line);
+			syntax_error(line, UNKNOWN_SETTING, parser->nb_line);
 		free_splited_str(parsed_line);
 		return (0);
 	}
-	if (ft_strchr(line, '-'))
-		syntax_error(line, "Rooms settings cannot contains '-'", env->nb_line);
-	if (line[0] == 'L')
-		syntax_error(line, "Rooms name cannot start with 'L'", env->nb_line);
-	verify_rooms_format(parsed_line, line, env);
+	handle_errors_rooms(line, parsed_line, parser);
 	free_splited_str(parsed_line);
 	return (1);
 }
 
-int		is_pipe(char *line, t_env *env)
+int		is_pipe(char *line, t_parse *parser)
 {
 	char	**parsed_line;
 	int		len;
@@ -58,6 +54,8 @@ int		is_pipe(char *line, t_env *env)
 		free_splited_str(parsed_line);
 		return (0);
 	}
+	if (ft_strcmp(parsed_line[0], parsed_line[1]) == 0)
+		syntax_error(line, MSG_PIPE_SAME, parser->nb_line);
 	free_splited_str(parsed_line);
 	// verify that the rooms does exist
 	return (1);
