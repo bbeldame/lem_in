@@ -6,7 +6,7 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 18:06:34 by bbeldame          #+#    #+#              #
-#    Updated: 2017/08/31 22:26:43 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/09/03 17:36:28 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ SRCS =	ft_putchar.c \
 		get_next_line.c \
 		ft_abs.c \
 		ft_strjoin_free.c \
-		ft_strjoin_nl_free.c
+		ft_strjoin_nl_free.c \
+		ft_count_spaces.c \
 
 OBJS =	$(SRCS:.c=.o)
 

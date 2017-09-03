@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 18:24:13 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/03 19:29:52 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define MSG_SAME_NAME "Rooms cannot have the same name"
 # define MSG_SAME_COOR "Rooms cannot have the same coordinates"
 # define MSG_ROOM_AFTER_PIPE "Rooms cannot be given after pipes"
+# define MSG_TOO_MUCH_SPACE "Bad formatted rooms, eg: xxx x x"
+# define MSG_ROOM_TAB "No tabs allowed"
 
 /*
 ** Ants Parser Errors

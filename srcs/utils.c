@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:40:24 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 14:41:58 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/02 20:20:47 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int		read_line(char **line, t_parse *parser)
 	res = get_next_line(0, line);
 	if (res == -1 && parser->nb_line == 1)
 	{
-		ft_putstr("Read Error on open");
+		ft_putstr_fd("Read Error on open", 2);
 		exit(3);
 	}
 	if (res == -1)
 	{
-		ft_putstr("Read Error : ");
-		ft_putstr("\" at line ");
-		ft_putnbr(parser->nb_line);
+		ft_putstr_fd("Read Error : ", 2);
+		ft_putstr_fd("\" at line ", 2);
+		ft_putnbr_fd(parser->nb_line, 2);
 		exit(3);
 	}
 	add_to_buffer(*line, parser);
@@ -40,4 +40,5 @@ void	init_parser(t_parse *parser)
 	parser->start_found = 0;
 	parser->end_found = 0;
 	parser->pipe_found = 0;
+	parser->room = NULL;
 }

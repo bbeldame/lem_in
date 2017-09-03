@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 19:08:39 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 22:26:45 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/03 17:36:08 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void				err_found(char *str);
 void				free_splited_str(char **str);
 int					get_next_line(int const fd, char **line);
 int					ft_abs(int a);
+int					ft_count_spaces(char *str);
 
 #endif

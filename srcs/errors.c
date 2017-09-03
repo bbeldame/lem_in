@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 15:24:06 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/03 17:40:32 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	handle_errors_rooms(char *line, char **parsed_line, t_parse *parser)
 {
+	if (ft_count_spaces(line) != 2)
+		syntax_error(line, MSG_TOO_MUCH_SPACE, parser->nb_line);
+	if (ft_strchr(line, '\t'))
+		syntax_error(line, MSG_ROOM_TAB, parser->nb_line);
 	if (parser->pipe_found)
 		syntax_error(line, MSG_ROOM_AFTER_PIPE, parser->nb_line);
 	if (ft_strchr(line, '-'))

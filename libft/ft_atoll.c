@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 22:24:39 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/08/31 22:26:22 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/03 17:35:25 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 intmax_t		ft_atoll(const char *str)
 {
-	int i;
-	intmax_t res;
-	int minus;
+	int			i;
+	intmax_t	res;
+	int			minus;
 
 	i = 0;
 	res = 0;
