@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/03 19:29:03 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:35:09 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "./error_code.h"
 
 # define RED "\x1B[31m"
+# define CYAN "\x1b[36m"
 # define NC "\033[0m"
 
 typedef struct			s_room_parse

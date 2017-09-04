@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/03 19:29:52 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:38:31 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 ** Ants Parser Errors
 */
 
-# define MSG_NULL "First line cannot be null"
+# define MSG_NULL "Lines cannot be null"
 # define MSG_ANTS_NEG "The number of ants cannot be negative"
 # define MSG_FORMAT "Ants badly formatted"
 # define MSG_TOO_MUCH "Too much ants"

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:25:13 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:43:20 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void		parse_room(char *line, t_parse *parser, int start, int end)
 {
 	char			**parsed_line;
 	t_room_parse	*new_room;
-	t_room_parse	*tmp;
 
 	new_room = (t_room_parse *)semalloc(sizeof(t_room_parse));
 	parsed_line = ft_strsplit(line, ' ');
@@ -25,8 +24,7 @@ void		parse_room(char *line, t_parse *parser, int start, int end)
 	new_room->y = ft_atoi(parsed_line[2]);
 	new_room->start = start;
 	new_room->end = end;
-	tmp = parser->room;
-	new_room->next = tmp;
+	new_room->next = parser->room;
 	parser->room = new_room;
 	free_splited_str(parsed_line);
 	ft_strdel(&line);
