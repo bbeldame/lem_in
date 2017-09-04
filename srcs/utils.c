@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:40:24 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:42:04 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 21:12:52 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	init_parser(t_parse *parser)
 	parser->end_found = 0;
 	parser->pipe_found = 0;
 	parser->room = NULL;
+	parser->nb_rooms = 0;
 }

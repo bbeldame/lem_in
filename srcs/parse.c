@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:43:20 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 21:33:56 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void		parse_room(char *line, t_parse *parser, int start, int end)
 	new_room->end = end;
 	new_room->next = parser->room;
 	parser->room = new_room;
+	parser->nb_rooms = parser->nb_rooms + 1;
 	free_splited_str(parsed_line);
 	ft_strdel(&line);
 }

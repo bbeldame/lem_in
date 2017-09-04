@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:35:09 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 21:16:03 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct			s_room
 	int					*path;
 	int					start;
 	int					end;
+	int					nb_paths;
+	char				*name;
 }						t_room;
 
 typedef	struct			s_engine
@@ -50,11 +52,13 @@ typedef struct			s_parse
 {
 	int					nb_ants;
 	int					nb_line;
+	int					nb_rooms;
 	int					start_found;
 	int					end_found;
 	int					pipe_found;
 	char				*buffer;
 	t_room_parse		*room;
+	t_room				*rooms;
 }						t_parse;
 
 /*
