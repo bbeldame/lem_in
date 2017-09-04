@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:38:26 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/03 19:25:35 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:25:29 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		is_pipe(char *line, t_parse *parser)
 		free_splited_str(parsed_line);
 		return (0);
 	}
-	if (ft_strcmp(parsed_line[0], parsed_line[1]) == 0)
+	if (ft_strequ(parsed_line[0], parsed_line[1]))
 		syntax_error(line, MSG_PIPE_SAME, parser->nb_line);
 	free_splited_str(parsed_line);
 	// verify that the rooms does exist

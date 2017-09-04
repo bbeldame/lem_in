@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:20:23 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/03 17:06:03 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:25:23 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		rooms_contains_name(char *name, t_parse *parser)
 	tmp = parser->room;
 	while (tmp)
 	{
-		if (ft_strcmp(tmp->name, name) == 0)
+		if (ft_strequ(tmp->name, name))
 			return (1);
 		tmp = tmp->next;
 	}

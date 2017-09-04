@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/02 20:19:59 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/04 20:25:13 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void		parse_room(char *line, t_parse *parser, int start, int end)
 
 void		dispatch_command(char *line, t_parse *parser)
 {
-	if (!ft_strcmp(line + 2, "start"))
+	if (ft_strequ(line + 2, "start"))
 		handle_command_start(line, parser);
-	else if (!ft_strcmp(line + 2, "end"))
+	else if (ft_strequ(line + 2, "end"))
 		handle_command_end(line, parser);
 	else
 		syntax_error(line, MSG_UNKNOWN_COMMAND, parser->nb_line);
