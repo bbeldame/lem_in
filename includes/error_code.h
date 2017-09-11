@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:38:31 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/11 21:02:11 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define MSG_ROOM_AFTER_PIPE "Rooms cannot be given after pipes"
 # define MSG_TOO_MUCH_SPACE "Bad formatted rooms, eg: xxx x x"
 # define MSG_ROOM_TAB "No tabs allowed"
+# define MSG_NO_START_ROOM "No start room found"
+# define MSG_NO_END_ROOM "No end room found"
 
 /*
 ** Ants Parser Errors

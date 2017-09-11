@@ -6,11 +6,19 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 20:40:07 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/11 21:03:57 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	errors_before_parsing_rooms_to_tab(char *line, t_parse *parser)
+{
+	if (parser->start_found == 0)
+		syntax_error(line, MSG_NO_START_ROOM, parser->nb_line);
+	if (parser->end_found == 0)
+		syntax_error(line, MSG_NO_END_ROOM, parser->nb_line);
+}
 
 void	handle_errors_rooms(char *line, char **parsed_line, t_parse *parser)
 {

@@ -6,11 +6,23 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/01 11:57:42 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/11 21:04:41 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+t_room	parse_room_from_chained_list(t_room_parse *old_room, t_parse *parser)
+{
+	t_room		new_room;
+
+	new_room.nb_paths = 0;
+	new_room.name = ft_strdup(old_room->name);
+	new_room.start = old_room->start;
+	new_room.end = old_room->end;
+	new_room.paths = (int *)semalloc(sizeof(int) * parser->nb_rooms - 1);
+	return (new_room);
+}
 
 int		parse_ants(char *str)
 {

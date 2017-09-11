@@ -6,11 +6,38 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 21:33:56 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/11 21:22:20 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void		parse_rooms_to_tab(char *line, t_parse *parser)
+{
+	int				i;
+	int				index;
+	t_room_parse	*tmp;
+
+	parser->pipe_found = 1;
+	errors_before_parsing_rooms_to_tab(line, parser);
+	parser->rooms = (t_room *)semalloc(sizeof(t_room) * parser->nb_rooms);
+	i = 0;
+	tmp = parser->room;
+	while (tmp)
+	{
+		if (tmp->start)
+			index = 0;
+		else if (tmp->end)
+			index = 1;
+		else
+		{
+			index = i + 2;
+			i++;
+		}
+		parser->rooms[index] = parse_room_from_chained_list(tmp, parser);
+		tmp = tmp->next;
+	}
+}
 
 void		parse_room(char *line, t_parse *parser, int start, int end)
 {

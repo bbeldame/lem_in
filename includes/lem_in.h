@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 21:16:03 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/11 21:04:33 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct			s_room_parse
 
 typedef struct			s_room
 {
-	int					*path;
+	int					*paths;
 	int					start;
 	int					end;
 	int					nb_paths;
@@ -46,6 +46,7 @@ typedef struct			s_room
 typedef	struct			s_engine
 {
 	int					nb_ants;
+	t_room				*rooms;
 }						t_engine;
 
 typedef struct			s_parse
@@ -69,6 +70,9 @@ int						parse_ants(char *str);
 void					parse_room(char *line,
 							t_parse *parser, int start, int end);
 void					dispatch_command(char *line, t_parse *parser);
+void					parse_rooms_to_tab(char *line, t_parse *parser);
+t_room					parse_room_from_chained_list(t_room_parse *old_room,
+							t_parse *parser);
 
 /*
 ** Verify
@@ -90,6 +94,8 @@ int						rooms_contains_coor(int x, int y, t_parse *parser);
 void					handle_errors_rooms(char *line,
 							char **parsed_line, t_parse *parser);
 void					syntax_error(char *line, char *explain, int nbline);
+void					errors_before_parsing_rooms_to_tab(char *line,
+							t_parse *parser);
 
 /*
 ** Utils
