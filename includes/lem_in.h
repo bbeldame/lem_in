@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/11 21:04:33 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/13 21:18:47 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void					dispatch_command(char *line, t_parse *parser);
 void					parse_rooms_to_tab(char *line, t_parse *parser);
 t_room					parse_room_from_chained_list(t_room_parse *old_room,
 							t_parse *parser);
+void					parse_pipe(char *line, t_parse *parser);
 
 /*
 ** Verify
@@ -103,6 +104,8 @@ void					errors_before_parsing_rooms_to_tab(char *line,
 
 int						read_line(char **line, t_parse *parser);
 void					init_parser(t_parse *parser);
+void					verify_that_pipe_does_not_already_exists(char *line,
+							t_room room, int index, t_parse *parser);
 
 /*
 ** Buffer

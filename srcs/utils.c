@@ -6,11 +6,25 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:40:24 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/04 21:12:52 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/13 21:19:25 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	verify_that_pipe_does_not_already_exists(char *line, t_room room,
+	int index, t_parse *parser)
+{
+	int		i;
+
+	i = 0;
+	while (i < room.nb_paths)
+	{
+		if (room.paths[i] == index)
+			syntax_error(line, MSG_PIPE_ALREADY_EXISTS, parser->nb_line);
+		i++;
+	}
+}
 
 int		read_line(char **line, t_parse *parser)
 {

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 20:44:02 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/13 21:19:41 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@
 */
 
 # define MSG_PIPE_SAME "Can't make any inception with the pipe"
+# define MSG_PIPE_NO_ROOM "No room found for this pipe"
+# define MSG_PIPE_ALREADY_EXISTS "This pipe already exists"
 
 #endif
