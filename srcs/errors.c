@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/11 21:03:57 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/13 20:40:31 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	handle_errors_rooms(char *line, char **parsed_line, t_parse *parser)
 
 void	syntax_error(char *line, char *explain, int nbline)
 {
-	ft_putstr_fd(RED"Syntax Error : "NC, 2);
+	ft_putstr_fd(RED"Syntax Error "NC, 2);
 	ft_putstr_fd(explain, 2);
-	ft_putstr_fd(CYAN" on \"", 2);
+	ft_putstr_fd(CYAN" (on \"", 2);
 	ft_putstr_fd(line, 2);
 	ft_putstr_fd("\" at line ", 2);
 	ft_putnbr_fd(nbline, 2);
-	ft_putchar_fd('\n', 2);
+	ft_putstr_fd(")\n", 2);
 	exit(3);
 }

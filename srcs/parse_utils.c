@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/11 21:04:41 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/13 20:47:58 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		parse_ants(char *str)
 			syntax_error(str, MSG_FORMAT, 1);
 	}
 	if (ft_strlen(str) > 12)
-		syntax_error(str, MSG_TOO_MUCH, 1);
+		syntax_error(str, MSG_INT_MAX, 1);
 	ants = ft_atoll(str);
 	if (ants == 0)
 		syntax_error(str, MSG_ZERO, 1);
