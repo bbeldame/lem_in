@@ -6,11 +6,35 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 21:44:11 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/23 20:33:59 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+/*
+** Free the parse structure and create the engine structure
+*/
+
+static t_engine	get_engine(t_parse *parser)
+{
+	t_engine		engine;
+	t_room_parse	*tmp;
+	t_room_parse	*fst;
+
+	engine.nb_ants = parser->nb_ants;
+	engine.nb_rooms = parser->nb_rooms;
+	engine.rooms = parser->rooms;
+	fst = parser->room;
+	while (fst)
+	{
+		tmp = fst->next;
+		ft_memdel((void **)&fst);
+		fst = tmp;
+	}
+	parser->room = NULL;
+	return (engine);
+}
 
 static void		dispatch_line(char *line, t_parse *parser)
 {
@@ -30,19 +54,22 @@ static void		dispatch_line(char *line, t_parse *parser)
 
 int				main(void)
 {
-	char	*line;
-	t_parse	parser;
+	char		*line;
+	t_parse		parser;
+	t_engine	engine;
 
 	init_parser(&parser);
 	read_line(&line, &parser);
 	parser.nb_ants = parse_ants(line);
-	printf("Number of ants is %d\n", parser.nb_ants);
 	ft_strdel(&line);
 	while (read_line(&line, &parser) > 0)
 	{
 		dispatch_line(line, &parser);
 	}
+	handle_errors_final(parser);
 	print_buffer(&parser);
+	engine = get_engine(&parser);
+	display_engine(engine);
 	// move_ants(parser);
 	return (0);
 }

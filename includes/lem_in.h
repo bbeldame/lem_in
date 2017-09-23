@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 21:18:47 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/23 20:25:05 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct			s_room
 typedef	struct			s_engine
 {
 	int					nb_ants;
+	int					nb_rooms;
 	t_room				*rooms;
 }						t_engine;
 
@@ -97,6 +98,8 @@ void					handle_errors_rooms(char *line,
 void					syntax_error(char *line, char *explain, int nbline);
 void					errors_before_parsing_rooms_to_tab(char *line,
 							t_parse *parser);
+void					handle_errors_final(t_parse parser);
+void					general_error(char *explain);
 
 /*
 ** Utils
@@ -120,5 +123,11 @@ void					print_buffer(t_parse *parser);
 
 void					handle_command_start(char *line, t_parse *parser);
 void					handle_command_end(char *line, t_parse *parser);
+
+/*
+** Display
+*/
+
+void					display_engine(t_engine engine);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:13:26 by bbeldame          #+#    #+#              #
-#    Updated: 2017/09/01 15:47:48 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/09/23 19:50:55 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRCS_NAME = lem_in.c \
 			buffer.c \
 			parse.c \
 			parse_utils.c \
-			commands.c
+			commands.c \
+			display.c
 
 OBJS = $(addprefix $(OBJDIR),$(SRCS_NAME:.c=.o))
 LIBFT = $(addprefix $(LIBFTDIR)/,$(LIBFTA))

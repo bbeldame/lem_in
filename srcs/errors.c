@@ -6,11 +6,32 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 20:40:31 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/23 20:34:45 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	handle_errors_final(t_parse parser)
+{
+	int		i;
+
+	if (parser.pipe_found == 0)
+		general_error(MSG_NO_PIPE);
+	i = 0;
+	while (i < parser.nb_rooms)
+	{
+		if (parser.rooms[i].nb_paths == 0)
+		{
+			ft_putstr_fd(RED"General Error "NC, 2);
+			ft_putstr_fd("The room ", 2);
+			ft_putstr_fd(parser.rooms[i].name, 2);
+			ft_putendl_fd(" does not have any paths", 2);
+			exit(3);
+		}
+		i++;
+	}
+}
 
 void	errors_before_parsing_rooms_to_tab(char *line, t_parse *parser)
 {
@@ -49,5 +70,12 @@ void	syntax_error(char *line, char *explain, int nbline)
 	ft_putstr_fd("\" at line ", 2);
 	ft_putnbr_fd(nbline, 2);
 	ft_putstr_fd(")\n", 2);
+	exit(3);
+}
+
+void	general_error(char *explain)
+{
+	ft_putstr_fd(RED"General Error "NC, 2);
+	ft_putendl_fd(explain, 2);
 	exit(3);
 }
