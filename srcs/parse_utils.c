@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 20:47:58 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/29 23:41:51 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_room	parse_room_from_chained_list(t_room_parse *old_room, t_parse *parser)
 	new_room.name = ft_strdup(old_room->name);
 	new_room.start = old_room->start;
 	new_room.end = old_room->end;
+	new_room.visited = 0;
+	new_room.dist = -1;
 	new_room.paths = (int *)semalloc(sizeof(int) * parser->nb_rooms - 1);
 	return (new_room);
 }

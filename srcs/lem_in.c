@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/23 20:33:59 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/09/29 19:52:23 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int				main(void)
 	print_buffer(&parser);
 	engine = get_engine(&parser);
 	display_engine(engine);
-	// move_ants(parser);
+	move_ants(engine);
 	return (0);
 }
