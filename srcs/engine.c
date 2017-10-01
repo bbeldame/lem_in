@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 21:24:30 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/01 22:04:18 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ static int		*record_path(t_engine *engine)
 
 	path = (int *)semalloc(sizeof(int) * engine->nb_rooms);
 	index = 0;
-	i = 0;
-	path[i] = 0;
-	i++;
+	path[0] = engine->rooms[0].dist + 1;
+	path[1] = 0;
+	i = 2;
 	while (index != 1)
 	{
 		path[i] = engine->rooms[index].next_room;
@@ -123,8 +123,12 @@ void			start_engine(t_engine *engine)
 	i = 0;
 	while (i < engine->nb_paths)
 	{
-		j = 0;
-		ft_putstr("GONNA PRINT THE PATH = ");
+		j = 1;
+		ft_putstr("PATH NUMBER ");
+		ft_putnbr(i);
+		ft_putstr(" has as a dist : ");
+		ft_putnbr(engine->paths[i][0]);
+		ft_putstr(" and is : ");
 		while (engine->paths[i][j] != 1)
 		{
 			ft_putstr(engine->rooms[engine->paths[i][j]].name);
