@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 19:06:33 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:08:59 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_engine	get_engine(t_parse *parser)
 	engine.nb_ants = parser->nb_ants;
 	engine.nb_rooms = parser->nb_rooms;
 	engine.rooms = parser->rooms;
+	engine.nb_paths = 0;
 	fst = parser->room;
 	while (fst)
 	{
@@ -59,7 +60,7 @@ int				main(void)
 	t_engine	engine;
 
 	init_parser(&parser);
-	parser.fd = open("./maps/first_example.map", O_RDONLY); // For debug only
+	parser.fd = open("./maps/multiple.map", O_RDONLY); // For debug only
 	read_line(&line, &parser);
 	parser.nb_ants = parse_ants(line);
 	ft_strdel(&line);
@@ -71,6 +72,6 @@ int				main(void)
 	print_buffer(&parser);
 	engine = get_engine(&parser);
 	display_engine(engine);
-	move_ants(engine);
+	start_engine(&engine);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 21:35:56 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:03:10 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	parse_pipe_into_rooms(char *line, int index_a,
 }
 
 /*
-** in a pipe : index_a-index_b
+** In a pipe : index_a-index_b
 */
 
 void		parse_pipe(char *line, t_parse *parser)

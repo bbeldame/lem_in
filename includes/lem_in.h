@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 19:06:26 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:19:17 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef	struct			s_engine
 	int					nb_ants;
 	int					nb_rooms;
 	t_room				*rooms;
+	int					**paths;
+	int					nb_paths;
 }						t_engine;
 
 typedef struct			s_parse
@@ -138,6 +140,7 @@ void					display_engine(t_engine engine);
 ** Engine
 */
 
-void					move_ants(t_engine engine);
+void					start_engine(t_engine *engine);
+int						used_room(t_engine *engine, int i_room);
 
 #endif
