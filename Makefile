@@ -6,14 +6,14 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:13:26 by bbeldame          #+#    #+#              #
-#    Updated: 2017/09/29 19:51:55 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/10/01 19:05:41 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
 
-FLAGS = -Wall -Wextra #-Werror
-	
+FLAGS = -g -Wall -Wextra #-Werror
+
 LIBFTA = libft.a
 
 LIBFTDIR = ./libft

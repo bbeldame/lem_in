@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 19:08:39 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/03 17:36:08 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/01 19:03:12 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 
 # define BUFF_SIZE 4032
-# define NBMAXFD 2
+# define NBMAXFD 200
 
 typedef struct		s_list
 {
