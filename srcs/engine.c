@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 23:34:14 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/02 23:38:38 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ static void		dfs(t_engine *engine, int index, int dist)
 	int i;
 
 	if (engine->rooms[index].blocked == 1)
-	{
 		return ;
-	}
 	if (engine->rooms[index].dist != -1 && dist > engine->rooms[index].dist)
 		return ;
 	engine->rooms[index].dist = dist;
