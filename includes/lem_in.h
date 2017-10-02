@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 21:19:17 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/02 23:07:28 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ typedef struct			s_room
 	int					start;
 	int					end;
 	int					nb_paths;
-	int					visited;
-	int					next_room;
 	int					dist;
+	int					blocked;
 	char				*name;
 }						t_room;
 
@@ -142,5 +141,6 @@ void					display_engine(t_engine engine);
 
 void					start_engine(t_engine *engine);
 int						used_room(t_engine *engine, int i_room);
+int						get_next_room(t_engine *engine, int i_room);
 
 #endif

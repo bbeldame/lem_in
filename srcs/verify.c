@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:38:26 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/13 20:50:38 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/02 22:10:54 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		is_room(char *line, t_parse *parser)
 	char	**parsed_line;
 	int		len;
 
+	if (line[0] == '#')
+		return (0);
 	parsed_line = ft_strsplit(line, ' ');
 	len = len_of_tab(parsed_line);
 	if (len != 3)
@@ -47,6 +49,8 @@ int		is_pipe(char *line, t_parse *parser)
 	char	**parsed_line;
 	int		len;
 
+	if (line[0] == '#')
+		return (0);
 	parsed_line = ft_strsplit(line, '-');
 	len = len_of_tab(parsed_line);
 	if (len != 2)

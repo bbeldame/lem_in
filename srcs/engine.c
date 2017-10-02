@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 22:04:18 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/02 23:34:14 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 ** Depth First Search Algorithm
 */
 
-static void		dfs(t_engine *engine, int index, int dist, int index_calling)
+static void		dfs(t_engine *engine, int index, int dist)
 {
 	int i;
 
-	engine->rooms[index].visited = 1;
-	if ((engine->rooms[index].dist == -1 || dist < engine->rooms[index].dist))
+	if (engine->rooms[index].blocked == 1)
 	{
-		engine->rooms[index].dist = dist;
-		engine->rooms[index].next_room = index_calling;
+		return ;
 	}
+	if (engine->rooms[index].dist != -1 && dist > engine->rooms[index].dist)
+		return ;
+	engine->rooms[index].dist = dist;
+	if (index == 0)
+		return ;
 	i = 0;
 	while (i < engine->rooms[index].nb_paths)
 	{
-		if (engine->rooms[engine->rooms[index].paths[i]].visited == 0)
-		{
-			dfs(engine, engine->rooms[index].paths[i], dist + 1, index);
-		}
+		dfs(engine, engine->rooms[index].paths[i], dist + 1);
 		i++;
 	}
 }
@@ -55,7 +55,7 @@ static int		*record_path(t_engine *engine)
 	i = 2;
 	while (index != 1)
 	{
-		path[i] = engine->rooms[index].next_room;
+		path[i] = get_next_room(engine, index);
 		index = path[i];
 		i++;
 	}
@@ -72,21 +72,13 @@ static void		block_path(t_engine *engine)
 	int		i_room;
 
 	i_room = 2;
-	engine->rooms[0].visited = 0;
 	engine->rooms[0].dist = -1;
-	engine->rooms[1].visited = 0;
 	engine->rooms[1].dist = -1;
 	while (i_room < engine->nb_rooms)
 	{
-		if (!used_room(engine, i_room))
-		{
-			engine->rooms[i_room].visited = 0;
-			engine->rooms[i_room].dist = -1;
-		}
-		else
-		{
-			engine->rooms[i_room].visited = 1;
-		}
+		engine->rooms[i_room].dist = -1;
+		if (used_room(engine, i_room))
+			engine->rooms[i_room].blocked = 1;
 		i_room++;
 	}
 }
@@ -109,9 +101,25 @@ void			start_engine(t_engine *engine)
 	i = 0;
 	while (i < possible_paths_nb)
 	{
-		dfs(engine, 1, 0, 0);
+		dfs(engine, 1, 0);
 		if (engine->rooms[0].dist != -1)
 		{
+			/*
+				j = 0;
+				while (j < engine->nb_rooms)
+				{
+					ft_putstr("Room ");
+					ft_putstr(engine->rooms[j].name);
+					ft_putstr(" has dist of ");
+					ft_putnbr(engine->rooms[j].dist);
+					if (engine->rooms[j].blocked == 1)
+						ft_putstr(" but is blocked");
+					ft_putchar('\n');
+					j++;
+				}
+				ft_putstr("==========================\n");
+				ft_putstr("==========================\n");
+			*/
 			engine->nb_paths += 1;
 			engine->paths[i] = record_path(engine);
 			block_path(engine);
