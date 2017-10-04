@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:40:24 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/01 19:06:43 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:30:52 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		read_line(char **line, t_parse *parser)
 	int		res;
 
 	parser->nb_line++;
-	res = get_next_line(parser->fd, line); // For debug only
+	res = get_next_line(0, line);
 	if (res == -1 && parser->nb_line == 1)
 	{
 		ft_putendl_fd("Read Error on open", 2);

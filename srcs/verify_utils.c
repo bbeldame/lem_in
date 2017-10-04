@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:20:23 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/23 19:20:29 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:17:43 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	verify_rooms_format(char **splited_s, char *line, t_parse *parser)
 	x = 0;
 	while (splited_s[0][x])
 	{
-		if (!ft_isalnum(splited_s[0][x]) && splited_s[0][x] != '_')
+		if (!ft_isalnum(splited_s[0][x]) && splited_s[0][x] != '_'
+			&& splited_s[0][x] != '|' && splited_s[0][x] != '\'')
 			syntax_error(line, MSG_ROOM_FORMAT, parser->nb_line);
 		x++;
 	}

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/23 20:34:49 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:26:56 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@
 */
 
 # define MSG_NO_PIPE "No pipe found"
+# define MSG_NO_PATH "No path was found between start and end"
 
 #endif

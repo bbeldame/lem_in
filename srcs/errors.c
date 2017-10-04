@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:40:12 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/09/23 20:34:45 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:19:36 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	handle_errors_final(t_parse parser)
 	if (parser.pipe_found == 0)
 		general_error(MSG_NO_PIPE);
 	i = 0;
-	while (i < parser.nb_rooms)
+	/*while (i < parser.nb_rooms)
 	{
 		if (parser.rooms[i].nb_paths == 0)
 		{
@@ -30,7 +30,7 @@ void	handle_errors_final(t_parse parser)
 			exit(3);
 		}
 		i++;
-	}
+	}*/
 }
 
 void	errors_before_parsing_rooms_to_tab(char *line, t_parse *parser)

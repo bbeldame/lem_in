@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 23:07:28 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:30:46 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct			s_parse
 	int					end_found;
 	int					pipe_found;
 	char				*buffer;
-	int					fd; // For debug only
 	t_room_parse		*room;
 	t_room				*rooms;
 }						t_parse;

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 23:38:38 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:26:29 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ void			start_engine(t_engine *engine)
 		}
 		i++;
 	}
+	if (engine->nb_paths == 0)
+		general_error(MSG_NO_PATH);
 
 	// Debug
 	i = 0;
