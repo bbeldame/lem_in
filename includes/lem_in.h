@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/04 14:30:46 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 22:19:53 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef struct			s_room
 	char				*name;
 }						t_room;
 
+typedef struct			s_ant
+{
+	int					path_chosen;
+	int					cur_pos;
+}						t_ant;
+
 typedef	struct			s_engine
 {
 	int					nb_ants;
@@ -52,6 +58,7 @@ typedef	struct			s_engine
 	t_room				*rooms;
 	int					**paths;
 	int					nb_paths;
+	t_ant				*ants;
 }						t_engine;
 
 typedef struct			s_parse
@@ -141,5 +148,12 @@ void					display_engine(t_engine engine);
 void					start_engine(t_engine *engine);
 int						used_room(t_engine *engine, int i_room);
 int						get_next_room(t_engine *engine, int i_room);
+
+/*
+** Moving
+*/
+
+void					init_ants(t_engine *engine);
+int						continue_moving(t_engine *engine);
 
 #endif

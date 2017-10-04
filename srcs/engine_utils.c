@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 21:13:10 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 23:34:51 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/04 21:01:49 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		get_next_room(t_engine *engine, int i_room)
 	dist_min = -1;
 	while (i < engine->rooms[i_room].nb_paths)
 	{
-		if (engine->rooms[engine->rooms[i_room].paths[i]].blocked == 0)
+		if (engine->rooms[engine->rooms[i_room].paths[i]].blocked == 0 &&
+			engine->rooms[engine->rooms[i_room].paths[i]].dist != -1)
 		{
 			if (dist_min == -1 ||
 				(engine->rooms[engine->rooms[i_room].paths[i]].dist < dist_min
