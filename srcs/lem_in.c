@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 20:38:32 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 21:28:43 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int				main(void)
 	t_engine	engine;
 
 	init_parser(&parser);
-	// parser.fd = open("maps/1k.map", O_RDONLY); // debug
+	// parser.fd = open("sujet1.map", O_RDONLY); // debug
 	read_line(&line, &parser);
 	parser.nb_ants = parse_ants(line);
 	ft_strdel(&line);

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 20:37:46 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 21:28:36 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		*record_path(t_engine *engine)
 	int			index;
 	int			i;
 
-	path = (int *)semalloc(sizeof(int) * engine->nb_rooms);
+	path = (int *)semalloc(sizeof(int) * engine->nb_rooms + 1);
 	index = 0;
 	path[0] = engine->rooms[0].dist + 1;
 	path[1] = 0;
@@ -89,7 +89,7 @@ static void		block_path(t_engine *engine)
 void			start_engine(t_engine *engine)
 {
 	int		i;
-	// int		j;
+	int		j;
 	int		possible_paths_nb;
 
 	possible_paths_nb = engine->rooms[0].nb_paths;
@@ -129,8 +129,8 @@ void			start_engine(t_engine *engine)
 	
 
 	// Debug
-	/*
-	i = 0;
+	
+	/*i = 0;
 	while (i < engine->nb_paths)
 	{
 		j = 1;
@@ -139,17 +139,14 @@ void			start_engine(t_engine *engine)
 		ft_putstr(" has as a dist : ");
 		ft_putnbr(engine->paths[i][0]);
 		ft_putstr(" and is : ");
-		while (engine->paths[i][j] != 1)
+		while (j <= engine->paths[i][0])
 		{
 			ft_putstr(engine->rooms[engine->paths[i][j]].name);
 			ft_putchar('-');
 			j++;
 		}
-		ft_putstr(engine->rooms[engine->paths[i][j]].name);
 		ft_putchar('\n');
 		i++;
-	}
-	*/
-
+	}*/
 	init_ants(engine);
 }

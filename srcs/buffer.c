@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 20:43:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 20:39:29 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 20:45:08 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	add_to_buffer(char *line, t_parse *parser)
 void	print_buffer(t_parse *parser)
 {
 	ft_putstr(parser->buffer);
-	ft_putstr("\n");
 }

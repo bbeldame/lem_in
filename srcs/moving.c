@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 21:27:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 20:38:53 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 21:28:18 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ static void		move_ants(t_engine *engine)
 	}
 }
 
-static t_ant	create_ant(t_engine *engine, int ant_nb)
+static t_ant	create_ant(int nb_paths, int ant_nb)
 {
 	t_ant	new_ant;
 	int		i_path;
 	int		best_path_found;
 
-	i_path = engine->nb_paths;
+	i_path = nb_paths;
 	new_ant.cur_pos = 1;
 	best_path_found = 0;
 	while (i_path != 0 && best_path_found == 0)
@@ -100,9 +100,9 @@ void			init_ants(t_engine *engine)
 
 	engine->ants = (t_ant *)semalloc(sizeof(t_ant) * engine->nb_ants);
 	i = 0;
-	while (i <= engine->nb_ants)
+	while (i < engine->nb_ants)
 	{
-		engine->ants[i] = create_ant(engine, i + 1);
+		engine->ants[i] = create_ant(engine->nb_paths, i + 1);
 		i++;
 	}
 
