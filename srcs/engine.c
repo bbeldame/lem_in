@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/04 21:53:27 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 20:37:46 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,12 @@ static void		block_path(t_engine *engine)
 void			start_engine(t_engine *engine)
 {
 	int		i;
-	int		j;
+	// int		j;
 	int		possible_paths_nb;
 
 	possible_paths_nb = engine->rooms[0].nb_paths;
 	possible_paths_nb = engine->rooms[1].nb_paths < possible_paths_nb ?
 		engine->rooms[1].nb_paths : possible_paths_nb;
-	printf("possible paths is %d\n", possible_paths_nb);
 	engine->paths = (int **)semalloc(sizeof(int *) * possible_paths_nb);
 	i = 0;
 	while (i < possible_paths_nb)
@@ -130,6 +129,7 @@ void			start_engine(t_engine *engine)
 	
 
 	// Debug
+	/*
 	i = 0;
 	while (i < engine->nb_paths)
 	{
@@ -149,6 +149,7 @@ void			start_engine(t_engine *engine)
 		ft_putchar('\n');
 		i++;
 	}
+	*/
 
 	init_ants(engine);
 }

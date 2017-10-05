@@ -6,19 +6,22 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 21:27:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/04 22:57:27 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/05 20:38:53 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-static int		print_ant(t_engine *engine, int index)
+static int		print_ant(t_engine *engine, int index, int print_space)
 {
 	int index_of_room;
 	int index_of_path;
 
+	engine->ants[index].cur_pos += 1;
 	index_of_path = engine->ants[index].path_chosen;
 	index_of_room = engine->paths[index_of_path][engine->ants[index].cur_pos];
+	if (print_space)
+		ft_putchar(' ');
 	ft_putchar('L');
 	ft_putnbr(index + 1);
 	ft_putchar('-');
@@ -26,51 +29,42 @@ static int		print_ant(t_engine *engine, int index)
 	return (1);
 }
 
-static int		maybe_print_ant(t_engine *engine, int index)
+static int		maybe_print_ant(t_engine *engine, int index, int print_space)
 {
-	int		index_next_ant;
-	int		index_prev_ant;
+	int		index_prev;
 
-	ft_putnbr(index);
 	if (engine->ants[index].cur_pos ==
 		engine->paths[engine->ants[index].path_chosen][0])
 		return (0);
 	if (engine->ants[index].cur_pos != 1)
+		return (print_ant(engine, index, print_space));
+	index_prev = index - engine->nb_paths;
+	if (index_prev < 0)
 	{
-		engine->ants[index].cur_pos += 1;
-		return (print_ant(engine, index));
+		return (print_ant(engine, index, print_space));
 	}
-	index_next_ant = index + engine->nb_paths;
-	if (index_next_ant >= engine->nb_ants)
-	{
-		engine->ants[index].cur_pos += 1;
-		return (print_ant(engine, index));
-	}
-	printf("engine->ants[index_next_ant].cur_pos = %d\n", engine->ants[index_next_ant].cur_pos);
-	if (engine->ants[index_next_ant].cur_pos != 1)
-	{
-		ft_putstr("cc\n");
-		engine->ants[index].cur_pos += 1;
-		return (print_ant(engine, index));
-	}
-	index_prev_ant = index - engine->nb_paths;
+	if (engine->ants[index_prev].cur_pos ==
+		engine->paths[engine->ants[index].path_chosen][0])
+		return (print_ant(engine, index, print_space));
+	if (engine->ants[index_prev].cur_pos != 1 &&
+		engine->ants[index_prev].cur_pos != 2)
+		return (print_ant(engine, index, print_space));
 	return (0);
 }
 
 static void		move_ants(t_engine *engine)
 {
 	int		ant;
-	int		printed;
+	int		print_space;
 
 	while (continue_moving(engine))
 	{
 		ant = 0;
-		printed = 0;
+		print_space = 0;
 		while (ant < engine->nb_ants)
 		{
-			if (printed > 0)
-				ft_putchar(' ');
-			printed += maybe_print_ant(engine, ant);
+			print_space += maybe_print_ant(engine, ant, print_space);
+			print_space = print_space > 1 ? print_space - 1 : print_space;
 			ant++;
 		}
 		ft_putchar('\n');
@@ -112,11 +106,11 @@ void			init_ants(t_engine *engine)
 		i++;
 	}
 
-	i = 0;
+	/*i = 0;
 	while (i < engine->nb_ants)
 	{
 		printf("The ant number %d will go in the path number %d\n", i + 1, engine->ants[i].path_chosen);
 		i++;
-	}
+	}*/
 	move_ants(engine);
 }
