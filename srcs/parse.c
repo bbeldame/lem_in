@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 20:06:37 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:37:32 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,5 @@ void		dispatch_command(char *line, t_parse *parser)
 		ft_strdel(&line);
 	}
 	else
-		syntax_error(line, MSG_UNKNOWN_COMMAND, parser->nb_line);
+		ft_strdel(&line);
 }
