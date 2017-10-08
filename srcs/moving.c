@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 21:27:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 19:37:23 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 22:49:18 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ static int		print_ant(t_engine *engine, int index, int print_space)
 	engine->ants[index].cur_pos += 1;
 	index_of_path = engine->ants[index].path_chosen;
 	index_of_room = engine->paths[index_of_path][engine->ants[index].cur_pos];
+	if (engine->color)
+		ft_putstr(get_color(index_of_path));
 	if (print_space)
 		ft_putchar(' ');
 	ft_putchar('L');
 	ft_putnbr(index + 1);
 	ft_putchar('-');
 	ft_putstr(engine->rooms[index_of_room].name);
+	ft_putstr(NC);
 	return (1);
 }
 

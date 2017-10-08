@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 20:37:32 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 22:57:49 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,11 @@ void		dispatch_command(char *line, t_parse *parser)
 	else if (ft_strequ(line + 2, "debug"))
 	{
 		parser->debug = 1;
+		ft_strdel(&line);
+	}
+	else if (ft_strequ(line + 2, "color"))
+	{
+		parser->color = 1;
 		ft_strdel(&line);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 20:24:41 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 22:45:29 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 # include "./error_code.h"
+
+# define NB_PATHS_COLORS 4
+# define GREEN "\x1b[32m"
+# define YELLOW "\x1b[33m"
+# define BLUE "\x1b[34m"
+# define MAGENTA "\x1b[35m"
 
 # define RED "\x1B[31m"
 # define CYAN "\x1b[36m"
@@ -59,6 +65,7 @@ typedef	struct			s_engine
 	int					**paths;
 	int					nb_paths;
 	int					debug;
+	int					color;
 	t_ant				*ants;
 }						t_engine;
 
@@ -71,6 +78,7 @@ typedef struct			s_parse
 	int					end_found;
 	int					pipe_found;
 	int					debug;
+	int					color;
 	char				*buffer;
 	t_room_parse		*room;
 	t_room				*rooms;
@@ -157,6 +165,7 @@ int						get_next_room(t_engine *engine, int i_room);
 */
 
 void					display_paths(t_engine *engine);
+char					*get_color(int i_path);
 
 /*
 ** Moving

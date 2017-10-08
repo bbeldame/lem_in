@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 15:15:05 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 20:33:30 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 22:42:37 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void		read_flags(t_parse *parser, int av, char **ac)
 	{
 		if (ft_strequ("--debug", ac[i]))
 			parser->debug = 1;
+		else if (ft_strequ("--color", ac[i]))
+			parser->color = 1;
 		else
 			syntax_error(ac[i], MSG_UNKNOWN_FLAG, 0);
 		i++;
@@ -41,6 +43,7 @@ static t_engine	get_engine(t_parse *parser)
 	engine.nb_rooms = parser->nb_rooms;
 	engine.rooms = parser->rooms;
 	engine.debug = parser->debug;
+	engine.color = parser->color;
 	engine.nb_paths = 0;
 	fst = parser->room;
 	while (fst)
