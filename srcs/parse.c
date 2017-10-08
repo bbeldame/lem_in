@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 14:02:34 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 21:25:41 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:06:37 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,11 @@ void		dispatch_command(char *line, t_parse *parser)
 		handle_command_start(line, parser);
 	else if (ft_strequ(line + 2, "end"))
 		handle_command_end(line, parser);
+	else if (ft_strequ(line + 2, "debug"))
+	{
+		parser->debug = 1;
+		ft_strdel(&line);
+	}
 	else
 		syntax_error(line, MSG_UNKNOWN_COMMAND, parser->nb_line);
 }

@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 21:38:26 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 22:10:54 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:19:43 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		is_comment(char *line)
 {
-	return (*line && line[0] == '#');
+	return (*line && line[0] == '#' && line[1] != '#');
 }
 
 int		is_command(char *line)

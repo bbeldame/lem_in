@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 19:35:38 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:24:41 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef	struct			s_engine
 	t_room				*rooms;
 	int					**paths;
 	int					nb_paths;
+	int					debug;
 	t_ant				*ants;
 }						t_engine;
 
@@ -69,6 +70,7 @@ typedef struct			s_parse
 	int					start_found;
 	int					end_found;
 	int					pipe_found;
+	int					debug;
 	char				*buffer;
 	t_room_parse		*room;
 	t_room				*rooms;
@@ -86,6 +88,7 @@ void					parse_rooms_to_tab(char *line, t_parse *parser);
 t_room					parse_room_from_chained_list(t_room_parse *old_room,
 							t_parse *parser);
 void					parse_pipe(char *line, t_parse *parser);
+void					handle_potential_comments(char **line, t_parse *parser);
 
 /*
 ** Verify
@@ -148,6 +151,12 @@ void					display_engine(t_engine engine);
 void					start_engine(t_engine *engine);
 int						used_room(t_engine *engine, int i_room);
 int						get_next_room(t_engine *engine, int i_room);
+
+/*
+** Debug
+*/
+
+void					display_paths(t_engine *engine);
 
 /*
 ** Moving

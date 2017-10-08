@@ -6,11 +6,21 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 20:39:19 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/02 23:09:39 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:25:06 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	handle_potential_comments(char **line, t_parse *parser)
+{
+	read_line(line, parser);
+	while (is_comment(*line))
+	{
+		ft_strdel(line);
+		read_line(line, parser);
+	}
+}
 
 t_room	parse_room_from_chained_list(t_room_parse *old_room, t_parse *parser)
 {
@@ -18,6 +28,7 @@ t_room	parse_room_from_chained_list(t_room_parse *old_room, t_parse *parser)
 
 	new_room.nb_paths = 0;
 	new_room.name = ft_strdup(old_room->name);
+	ft_strdel(&old_room->name);
 	new_room.start = old_room->start;
 	new_room.end = old_room->end;
 	new_room.dist = -1;

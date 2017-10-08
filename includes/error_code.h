@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 18:23:35 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/04 14:26:56 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 19:45:09 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 */
 
 # define MSG_UNKNOWN_SETTING "This format does not exist"
+# define MSG_UNKNOWN_FLAG "This flag does not exist"
 # define MSG_UNKNOWN_COMMAND "This command does not exist"
+# define MSG_NO_PIPE "No pipe found"
+# define MSG_NO_PATH "No path was found between start and end"
 
 /*
 ** Rooms Parser Errors
@@ -63,12 +66,5 @@
 # define MSG_PIPE_SAME "Can't make any inception with the pipe"
 # define MSG_PIPE_NO_ROOM "No room found for this pipe"
 # define MSG_PIPE_ALREADY_EXISTS "This pipe already exists"
-
-/*
-** General Errors
-*/
-
-# define MSG_NO_PIPE "No pipe found"
-# define MSG_NO_PATH "No path was found between start and end"
 
 #endif

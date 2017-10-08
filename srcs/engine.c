@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 19:12:35 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 19:54:33 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ static void		block_path(t_engine *engine)
 void			start_engine(t_engine *engine)
 {
 	int		i;
-	int		j;
 	int		possible_paths_nb;
 
 	possible_paths_nb = engine->rooms[0].nb_paths;
@@ -102,22 +101,6 @@ void			start_engine(t_engine *engine)
 		dfs(engine, 1, 0);
 		if (engine->rooms[0].dist != -1)
 		{
-			/*
-				j = 0;
-				while (j < engine->nb_rooms)
-				{
-					ft_putstr("Room ");
-					ft_putstr(engine->rooms[j].name);
-					ft_putstr(" has dist of ");
-					ft_putnbr(engine->rooms[j].dist);
-					if (engine->rooms[j].blocked == 1)
-						ft_putstr(" but is blocked");
-					ft_putchar('\n');
-					j++;
-				}
-				ft_putstr("==========================\n");
-				ft_putstr("==========================\n");
-			*/
 			engine->nb_paths += 1;
 			engine->paths[i] = record_path(engine);
 			block_path(engine);
@@ -126,28 +109,7 @@ void			start_engine(t_engine *engine)
 	}
 	if (engine->nb_paths == 0)
 		general_error(MSG_NO_PATH);
-	
-
-	// Debug
-	/*
-	i = 0;
-	while (i < engine->nb_paths)
-	{
-		j = 1;
-		ft_putstr("PATH NUMBER ");
-		ft_putnbr(i);
-		ft_putstr(" has as a dist : ");
-		ft_putnbr(engine->paths[i][0]);
-		ft_putstr(" and is : ");
-		while (j <= engine->paths[i][0])
-		{
-			ft_putstr(engine->rooms[engine->paths[i][j]].name);
-			ft_putchar('-');
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
-	*/
+	if (engine->debug)
+		display_paths(engine);
 	init_ants(engine);
 }
