@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:23:17 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/08 20:40:33 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 20:43:07 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		handle_command_start(char *line, t_parse *parser)
 	ft_strdel(&line);
 	handle_potential_comments(&line, parser);
 	if (!is_room(line, parser))
-	syntax_error(line, MSG_NO_ROOM_START, parser->nb_line);
+		syntax_error(line, MSG_NO_ROOM_START, parser->nb_line);
 	parse_room(line, parser, 1, 0);
 	parser->start_found = 1;
 }
@@ -27,7 +27,7 @@ void		handle_command_start(char *line, t_parse *parser)
 void		handle_command_end(char *line, t_parse *parser)
 {
 	if (parser->end_found)
-	syntax_error(line, MSG_OVERRIDE_END, parser->nb_line);
+		syntax_error(line, MSG_OVERRIDE_END, parser->nb_line);
 	ft_strdel(&line);
 	handle_potential_comments(&line, parser);
 	if (!is_room(line, parser))
