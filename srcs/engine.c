@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 19:45:56 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 21:28:36 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 19:12:35 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ void			start_engine(t_engine *engine)
 	
 
 	// Debug
-	
-	/*i = 0;
+	/*
+	i = 0;
 	while (i < engine->nb_paths)
 	{
 		j = 1;
@@ -147,6 +147,7 @@ void			start_engine(t_engine *engine)
 		}
 		ft_putchar('\n');
 		i++;
-	}*/
+	}
+	*/
 	init_ants(engine);
 }

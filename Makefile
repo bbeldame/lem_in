@@ -6,7 +6,7 @@
 #    By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:13:26 by bbeldame          #+#    #+#              #
-#    Updated: 2017/10/04 22:20:16 by bbeldame         ###   ########.fr        #
+#    Updated: 2017/10/08 19:36:04 by bbeldame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRCS_NAME = lem_in.c \
 			parse.c \
 			parse_utils.c \
 			commands.c \
-			display.c \
 			engine.c \
 			engine_utils.c \
 			moving.c \

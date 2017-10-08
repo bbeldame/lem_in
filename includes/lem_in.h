@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 22:10:41 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 20:12:34 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 19:35:38 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct			s_parse
 	int					end_found;
 	int					pipe_found;
 	char				*buffer;
-	int					fd; // debug
 	t_room_parse		*room;
 	t_room				*rooms;
 }						t_parse;
@@ -156,5 +155,6 @@ int						get_next_room(t_engine *engine, int i_room);
 
 void					init_ants(t_engine *engine);
 int						continue_moving(t_engine *engine);
+int						get_index_lower(int nb_paths, int ant_nb);
 
 #endif

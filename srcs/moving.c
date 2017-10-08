@@ -6,7 +6,7 @@
 /*   By: bbeldame <bbeldame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 21:27:58 by bbeldame          #+#    #+#             */
-/*   Updated: 2017/10/05 21:28:18 by bbeldame         ###   ########.fr       */
+/*   Updated: 2017/10/08 19:37:23 by bbeldame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,25 @@ static void		move_ants(t_engine *engine)
 	}
 }
 
+/*
+** Index_lower is the number of the ant if there was only x ant,
+** x being the number of paths.
+*/
+
 static t_ant	create_ant(int nb_paths, int ant_nb)
 {
 	t_ant	new_ant;
 	int		i_path;
 	int		best_path_found;
+	int		index_lower;
 
+	index_lower = get_index_lower(nb_paths, ant_nb);
 	i_path = nb_paths;
 	new_ant.cur_pos = 1;
 	best_path_found = 0;
 	while (i_path != 0 && best_path_found == 0)
 	{
-		if (ant_nb % i_path == 0)
+		if (index_lower % i_path == 0)
 		{
 			new_ant.path_chosen = i_path - 1;
 			best_path_found = 1;
@@ -105,12 +112,5 @@ void			init_ants(t_engine *engine)
 		engine->ants[i] = create_ant(engine->nb_paths, i + 1);
 		i++;
 	}
-
-	/*i = 0;
-	while (i < engine->nb_ants)
-	{
-		printf("The ant number %d will go in the path number %d\n", i + 1, engine->ants[i].path_chosen);
-		i++;
-	}*/
 	move_ants(engine);
 }
